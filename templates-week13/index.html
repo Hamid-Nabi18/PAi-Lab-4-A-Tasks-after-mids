@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HadithBot - Islamic Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-icon">☪</div>
+                    <div class="logo-text">
+                        <h1>HadithBot</h1>
+                        <span class="subtitle">AI-Powered Islamic Knowledge</span>
+                    </div>
+                </div>
+                <div class="header-badge">
+                    <span class="badge-text">RAG + FAISS</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <div class="chat-container" id="chatContainer">
+            <!-- Welcome Message -->
+            <div class="message bot-message welcome-message">
+                <div class="message-avatar bot-avatar">🤖</div>
+                <div class="message-content">
+                    <div class="message-bubble">
+                        <p class="welcome-text">
+                            <span class="arabic-greeting">السلام عليكم</span>
+                            Welcome to HadithBot! I can help you find authentic Hadith from Sahih Bukhari and other collections.
+                        </p>
+                        <div class="suggestions">
+                            <p class="suggestions-title">Try asking:</p>
+                            <div class="suggestion-chips">
+                                <span class="suggestion-chip">What are the five pillars of Islam?</span>
+                                <span class="suggestion-chip">Tell me about intentions in actions</span>
+                                <span class="suggestion-chip">What is the importance of prayer?</span>
+                                <span class="suggestion-chip">Hadith about charity</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="message-time">Just now</span>
+                </div>
+            </div>
+            <!-- Chat messages will be inserted here -->
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <button class="voice-btn" title="Voice input">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="23"/>
+                        <line x1="8" y1="23" x2="16" y2="23"/>
+                    </svg>
+                </button>
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    class="chat-input" 
+                    placeholder="Ask about Hadith..."
+                    autocomplete="off"
+                />
+                <button class="send-btn" id="sendBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
